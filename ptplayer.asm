@@ -277,9 +277,12 @@ mt_e1:
 	out r30, 0
 	rloop mt_e1
 	out 0x80000680, 0
+	cmp.32 [mt_old_int], 0 ; we didn't autoinstall an ISR
+	ifz rjmp mt_exit_ret
 	icl
 	mov.32 [0x3FC], [mt_old_int] ; restore old interrupt
 	ise
+mt_exit_ret:
 	pop r31
 	pop r30
 	ret
