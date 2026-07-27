@@ -1,0 +1,63 @@
+; fox32os routine definitions
+
+; system jump table
+get_os_version:            jmp [0x00000810]
+get_os_api_version:        jmp [0x00000814]
+get_current_disk_id:       jmp [0x00000818]
+set_current_disk_id:       jmp [0x0000081C]
+get_boot_disk_id:          jmp [0x00000820]
+open_library:              jmp [0x00000824]
+close_library:             jmp [0x00000828]
+get_current_directory:     jmp [0x0000082C]
+set_current_directory:     jmp [0x00000830]
+
+; FXF jump table
+parse_fxf_binary:          jmp [0x00000910]
+launch_fxf_from_disk:      jmp [0x00000914]
+launch_fxf_from_open_file: jmp [0x00000918]
+
+; task jump table
+new_task:                  jmp [0x00000A10]
+yield_task:                jmp [0x00000A14]
+end_current_task:          jmp [0x00000A18]
+get_current_task_id:       jmp [0x00000A1C]
+get_unused_task_id:        jmp [0x00000A20]
+is_task_id_used:           jmp [0x00000A24]
+save_state_and_yield_task: jmp [0x00000A28]
+sleep_task:                jmp [0x00000A2C]
+get_task_queue:            jmp [0x00000A30]
+
+; memory jump table
+allocate_memory:           jmp [0x00000B10]
+free_memory:               jmp [0x00000B14]
+heap_usage:                jmp [0x00000B18]
+
+; VFS jump table
+open:                      jmp [0x00000C10]
+seek:                      jmp [0x00000C14]
+tell:                      jmp [0x00000C18]
+read:                      jmp [0x00000C1C]
+write:                     jmp [0x00000C20]
+get_size:                  jmp [0x00000C24]
+create:                    jmp [0x00000C28]
+delete:                    jmp [0x00000C2C]
+copy:                      jmp [0x00000C30]
+get_dir_name:              jmp [0x00000C34]
+get_parent_dir:            jmp [0x00000C38]
+create_dir:                jmp [0x00000C3C]
+
+; resource jump table
+get_resource:              jmp [0x00000D10]
+get_res_in_fxf:            jmp [0x00000D14]
+
+; event types
+const EVENT_TYPE_BUTTON_CLICK: 0x80000000
+
+; widget types
+const WIDGET_TYPE_BUTTON:     0x00000000
+const WIDGET_TYPE_TEXTBOX_SL: 0x00000001
+const WIDGET_TYPE_LABEL:      0x00000002
+
+; window flags
+const WINDOW_FLAG_ALWAYS_BACKGROUND: 1
+const WINDOW_FLAG_NO_TITLE_BAR:      2
